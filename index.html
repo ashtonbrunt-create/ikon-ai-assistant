@@ -8,10 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Barlow:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* ===== IKON BRAND — adjust to exact brand colors here ===== */
-    --brand: #C8102E;          /* accent red */
+    --brand: #C8102E;
     --brand-dark: #9B0C23;
-    --ink: #141414;            /* IKON black */
+    --ink: #141414;
     --ink-soft: #5E5E5E;
     --paper: #F7F6F4;
     --card: #FFFFFF;
@@ -20,7 +19,6 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Inter', system-ui, sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
-
   header { background: var(--ink); color: #fff; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .brand-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: .08em; }
   .brand-name span { color: var(--brand); }
@@ -28,52 +26,40 @@
   .badges { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
   .badge { font-size: 10px; letter-spacing: .08em; border: 1px solid #3A3A3A; color: #C9C9C9; padding: 4px 9px; border-radius: 3px; white-space: nowrap; }
   .badge.accent { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 500; }
-
   .tabs { display: flex; background: var(--card); border-bottom: 1px solid var(--line); overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .tab { font-family: 'Barlow', sans-serif; font-weight: 500; font-size: 14px; padding: 13px 18px; color: var(--ink-soft); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; transition: color .12s; user-select: none; }
   .tab:hover { color: var(--ink); }
   .tab.active { color: var(--ink); border-bottom-color: var(--brand); }
-
   main { max-width: 780px; margin: 0 auto; padding: 26px 18px 60px; }
   .tool-title { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 20px; margin-bottom: 4px; }
   .tool-desc { font-size: 13px; color: var(--ink-soft); margin-bottom: 22px; }
-
   .panel { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
-
   label { display: block; font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 6px; }
   .field { margin-bottom: 16px; }
-  input[type=text], select, textarea {
-    width: 100%; padding: 10px 12px; font-size: 14px; font-family: inherit;
-    border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink);
-  }
+  input[type=text], select, textarea { width: 100%; padding: 10px 12px; font-size: 14px; font-family: inherit; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); }
   input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand); }
   textarea { min-height: 90px; resize: vertical; line-height: 1.55; }
-
-  .gen-btn {
-    font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: .03em;
-    background: var(--brand); color: #fff; border: none; border-radius: 6px;
-    padding: 12px 26px; cursor: pointer; transition: background .12s; width: 100%;
-  }
+  .gen-btn { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: .03em; background: var(--brand); color: #fff; border: none; border-radius: 6px; padding: 12px 26px; cursor: pointer; transition: background .12s; width: 100%; }
   .gen-btn:hover { background: var(--brand-dark); }
   .gen-btn:disabled { opacity: .55; cursor: not-allowed; }
   @media (min-width: 561px) { .gen-btn { width: auto; } }
-
   .output { margin-top: 20px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: 6px; padding: 18px 20px; display: none; }
   .output.visible { display: block; }
   .output-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 10px; }
   .output-label { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); }
   .copy { font-size: 12px; background: none; border: 1px solid var(--line); border-radius: 5px; padding: 5px 12px; cursor: pointer; color: var(--ink-soft); }
   .copy:hover { border-color: var(--brand); color: var(--brand-dark); }
-  #out-text { font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
-  #out-text.error { color: var(--err); }
+  #out-text { font-size: 14px; line-height: 1.7; }
+  #out-text.error { color: var(--err); white-space: pre-wrap; }
+  #out-text p { margin-bottom: 10px; white-space: pre-wrap; }
+  #out-text p:last-child { margin-bottom: 0; }
+  #out-text .section-head { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: .1em; color: var(--brand-dark); margin: 18px 0 4px; display: block; }
   .demo-note { font-size: 11px; color: var(--ink-soft); background: var(--paper); border: 1px dashed var(--line); border-radius: 5px; padding: 6px 10px; margin-bottom: 12px; display: none; }
   .demo-note.visible { display: block; }
-
   .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -2px; margin-right: 7px; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
   footer { text-align: center; font-size: 12px; color: var(--ink-soft); padding: 20px; line-height: 1.6; }
 </style>
 </head>
@@ -96,7 +82,6 @@
   <h1 class="tool-title" id="tool-title"></h1>
   <p class="tool-desc" id="tool-desc"></p>
   <div class="panel" id="form-panel"></div>
-
   <div class="output" id="output">
     <div class="output-bar">
       <span class="output-label" id="out-label">Output</span>
@@ -113,9 +98,6 @@
 </footer>
 
 <script>
-// ============================================================
-// TOOL DEFINITIONS
-// ============================================================
 const TOOLS = {
   proposal: {
     name: "Proposal",
@@ -176,31 +158,36 @@ const TOOLS = {
   },
 };
 
-// ============================================================
-// DEMO MODE — realistic sample outputs shown when the file is
-// opened directly (before deployment). Lets you demo the full
-// experience at the discovery meeting with no backend running.
-// ============================================================
 const DEMO = {
-  proposal: `ROOFING PROPOSAL — Jensen Residence
-1240 E 300 N, American Fork, UT
+  proposal: `ROOFING PROPOSAL
+Jensen Residence | 1240 E 300 N, American Fork UT | Prepared by Brandon
 
 OVERVIEW
-Thank you for the opportunity to care for your home. IKON Roofing is a GAF Master Elite certified contractor — a designation earned by fewer than 2% of roofing contractors in North America — based right here in American Fork. Every roof we install is built to handle Utah's toughest weather, and built to last.
+At IKON Roofing, we believe a roof should be built right the first time. As a GAF Master Elite certified contractor — a distinction held by fewer than 2% of roofing contractors in North America — we hold ourselves to a standard most companies simply can't match. We're a Northern Utah company, and we've seen what Utah weather does to roofs over time. Every project we take on is built to handle it.
 
 SCOPE OF WORK
-Complete tear-off of the existing roofing system down to the deck. Inspection and replacement of damaged decking on the south slope. Installation of ice & water shield at all eaves and valleys, synthetic underlayment across the full deck, new pipe boots, and a continuous ridge vent for proper attic ventilation.
+1. Full tear-off of existing roofing system down to the deck
+2. Inspect and replace damaged decking on south slope
+3. Install ice and water shield at all eaves and valleys
+4. Install synthetic underlayment across full deck
+5. Install GAF Timberline HDZ in Charcoal
+6. New pipe boots and continuous ridge vent
+7. Full site cleanup and magnetic nail sweep
 
 MATERIALS
-GAF Timberline HDZ architectural shingles in Charcoal — the most installed shingle in North America — with matching ridge cap. As a Master Elite contractor, IKON can offer enhanced GAF warranty options not available through standard installers. [CONFIRM: warranty tier selected]
+GAF Timberline HDZ architectural shingles in Charcoal, installed to GAF Master Elite standards. As a Master Elite contractor, IKON can offer enhanced GAF warranty options not available through standard installers.
 
 INVESTMENT
-Your investment for the complete system: $15,800 – $17,400. This covers all materials, labor, debris haul-away, and full site cleanup with magnetic nail sweep.
+Estimated investment: $15,800 – $17,400. This covers all materials, labor, debris removal, and a final walkthrough with you before we consider the job closed.
 
 NEXT STEPS
-We'd love to answer any questions and get you on the schedule before the summer storm season. Call Brandon at (801) 573-6010 — we'll take care of the rest.`,
+Call or text Brandon at (801) 573-6010 to move forward. We'll confirm your material selections, finalize the details, and get you scheduled.
 
-  followup: `Subject: Your roof estimate — any questions, Linda?
+We're not the biggest — just the best. We'd be proud to put that on your roof.
+
+IKON Roofing | GAF Master Elite Certified | American Fork, Utah`,
+
+  followup: `Subject: Following up on your roof estimate
 
 Hi Linda,
 
@@ -216,74 +203,66 @@ Brandon
 IKON Roofing · (801) 573-6010`,
 
   handoff: `JOB SUMMARY
-- Christensen family — full tear-off and re-roof
-- Scheduled: June 22, 2026
-- Sold by: [CONFIRM: rep]
+Christensen family — full tear-off and re-roof
+Scheduled: June 22, 2026
 
 SOLD SCOPE
-- Full tear-off, single layer
-- GAF Timberline HDZ — Weathered Wood
-- Replace 3 sheets decking, NE corner
-- New drip edge, all sides
-- Reflash chimney
+1. Full tear-off, single layer
+2. GAF Timberline HDZ Weathered Wood
+3. Replace 3 sheets decking, NE corner
+4. New drip edge, all sides
+5. Reflash chimney
 
 SITE & ACCESS NOTES
-- Steep pitch on back slope — harness work required
-- Keep driveway clear until 9:00am (customer working from home)
-- Trampoline in backyard needs moving before tear-off
+1. Steep pitch on back slope — harness work required
+2. Keep driveway clear until 9am, customer working from home
+3. Trampoline in backyard needs moving before tear-off
 
 CUSTOMER EXPECTATIONS
-- Customer home during the job — introduce crew lead on arrival
-- Gutter quote promised separately [CONFIRM: sent?]
+1. Customer home during job — introduce crew lead on arrival
+2. Gutter quote promised separately
 
 FLAGS
-- HOA: no work before 7:00am — plan start time accordingly
-- Back slope harness work will slow day one; set expectations on timeline`,
+1. HOA: no work before 7am — plan start time accordingly
+2. Back slope harness work will slow day one`,
 
-  scope: `SCOPE OF WORK — Customer-Facing
+  scope: `SCOPE OF WORK
 
 IKON Roofing will perform the following work to GAF Master Elite installation standards:
 
-1. Remove existing architectural shingle roofing (one layer) down to the roof deck.
-2. Inspect all decking; replace damaged or soft sections as needed at the per-sheet rate disclosed in your contract.
-3. Install ice & water shield membrane at all valleys, eaves, and roof penetrations for protection against Utah freeze-thaw cycles.
-4. Install synthetic underlayment across the entire roof deck.
-5. Install GAF Timberline HDZ architectural shingles in Pewter Gray.
-6. Install continuous ridge vent with matching ridge cap shingles.
-7. Complete site cleanup including debris haul-away and magnetic nail sweep of lawn and driveway.
+1. Remove existing architectural shingle roofing down to the roof deck
+2. Inspect all decking and replace damaged sections as needed
+3. Install ice and water shield at all valleys, eaves, and penetrations
+4. Install synthetic underlayment across the full deck
+5. Install GAF Timberline HDZ in Pewter Gray
+6. Install continuous ridge vent with matching ridge cap
+7. Full site cleanup including debris haul-away and magnetic nail sweep`,
 
-All work performed by IKON Roofing crews and covered under the workmanship warranty terms in your agreement.`,
-
-  notes: `JOB SUMMARY — [Date]
-
-WORK COMPLETED
-- Crew on site 7:00am; full tear-off completed by 10:30am
-- Replaced 2 sheets of decking around swamp cooler curb (soft/water-damaged)
-- Shingle installation completed: front and west slopes
+  notes: `WORK COMPLETED
+Crew on site 7am. Full tear-off completed by 10:30am. Replaced 2 sheets of decking around swamp cooler curb. Shingle installation completed on front and west slopes.
 
 MATERIALS USED
-- 2 sheets decking (swamp cooler area)
-- [CONFIRM: shingle quantities used]
+2 sheets replacement decking at swamp cooler curb.
+[CONFIRM: shingle quantities used]
 
 ISSUES ENCOUNTERED
-- Afternoon wind slowed shingle installation
-- Soft decking discovered at swamp cooler curb — replaced same day
+Soft decking found at swamp cooler curb — replaced same day. Afternoon wind slowed shingle installation on west slope.
 
 OUTSTANDING ITEMS
-- Back slope and ridge cap scheduled for tomorrow
-- Customer requested a gutter quote — needs to be sent`,
+1. Back slope and ridge cap scheduled for tomorrow
+2. Customer requested gutter quote — needs to be sent`,
 
-  training: `Good question — this comes up a lot with Utah hail claims.
+  training: `Good question — this comes up regularly with Utah hail claims.
 
-When insurance approves only a partial replacement but the damage is roof-wide, here's the process:
+When insurance approves only a partial replacement but the damage is roof-wide, here is the process:
 
-1. Document everything first. Photograph matching damage on every slope before any work starts — chalk-circle test squares help.
-2. Don't accept the partial scope as final. A partial approval is a starting position, not a closed decision.
-3. Prepare a supplement. Office staff drafts an insurance supplement with the photo documentation and, where applicable, shingle discontinuation/matching arguments.
+1. Document everything first. Photograph matching damage on every slope before any work starts.
+2. Do not accept the partial scope as final. A partial approval is a starting position, not a closed decision.
+3. Prepare a supplement. Office staff drafts an insurance supplement with photo documentation and shingle matching arguments.
 4. Escalate to Brandon before the adjuster re-inspection — he handles adjuster conversations on contested scopes.
 5. Never tell the homeowner to accept or fight the claim decision themselves — we present the documentation and let the carrier process work.
 
-As a new estimator, your job is steps 1 and 2: thorough documentation and flagging it. Brandon and the office take it from there.`,
+As a new estimator, your job is steps 1 and 2. Brandon and the office handle the rest.`,
 };
 
 let activeTool = "proposal";
@@ -306,7 +285,6 @@ function renderForm() {
   document.getElementById("tool-desc").textContent = tool.desc;
   const panel = document.getElementById("form-panel");
   panel.innerHTML = "";
-
   let i = 0;
   const fields = tool.fields;
   while (i < fields.length) {
@@ -324,7 +302,6 @@ function renderForm() {
       i += 1;
     }
   }
-
   const btn = document.createElement("button");
   btn.className = "gen-btn";
   btn.id = "gen-btn";
@@ -364,17 +341,14 @@ function fieldEl(f) {
 async function generate() {
   const tool = TOOLS[activeTool];
   const btn = document.getElementById("gen-btn");
-
   const lines = [];
   for (const f of tool.fields) {
     const val = document.getElementById("f-" + f.id).value.trim();
     if (val) lines.push(f.label + ": " + val);
   }
-
   btn.disabled = true;
   btn.innerHTML = '<span class="spin"></span>Generating…';
   showOut("", false, "Generating…", false);
-
   try {
     if (location.protocol === "file:") throw new Error("demo");
     const res = await fetch("/api/generate", {
@@ -389,9 +363,25 @@ async function generate() {
     await new Promise((r) => setTimeout(r, 900));
     showOut(DEMO[activeTool], false, tool.name, true);
   }
-
   btn.disabled = false;
   btn.textContent = "Generate";
+}
+
+function renderOutput(text) {
+  const lines = text.split("\n");
+  let html = "";
+  let para = [];
+  const flush = () => { if (para.length) { html += `<p>${para.join("\n")}</p>`; para = []; } };
+  for (const line of lines) {
+    if (/^[A-Z][A-Z\s&\/]{3,}$/.test(line.trim()) && line.trim().length < 40) {
+      flush();
+      html += `<span class="section-head">${line.trim()}</span>`;
+    } else {
+      para.push(line);
+    }
+  }
+  flush();
+  return html;
 }
 
 function showOut(text, isError, label, isDemo) {
@@ -400,12 +390,22 @@ function showOut(text, isError, label, isDemo) {
   if (label) document.getElementById("out-label").textContent = label;
   document.getElementById("demo-note").classList.toggle("visible", !!isDemo);
   const t = document.getElementById("out-text");
-  t.textContent = text;
-  t.className = isError ? "error" : "";
+  if (isError) {
+    t.className = "error";
+    t.textContent = text;
+  } else {
+    t.className = "";
+    t.innerHTML = renderOutput(text);
+  }
+  t.dataset.plain = text;
 }
+
 function hideOut() { document.getElementById("output").classList.remove("visible"); }
+
 function copyOut() {
-  navigator.clipboard.writeText(document.getElementById("out-text").textContent).catch(() => {});
+  const t = document.getElementById("out-text");
+  const text = t.dataset.plain || t.textContent;
+  navigator.clipboard.writeText(text).catch(() => {});
 }
 
 renderTabs();
